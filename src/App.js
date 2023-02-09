@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
-function App() {
+//board width
+const width = 8 ;
+//array of candys colors
+const candyColors = [
+  'blue',
+  'green',
+  'red',
+  'orange',
+  'yellow',
+  'purple'
+]
+
+const App = () => {
+  //STATE
+  const [currentColorArrangement, setCurrentColorArrangement] = useState([]) ;
+
+  //board initialization
+  const createBoard = () => {
+    const randomColorArrangement = [] ; 
+    for(let i = 0 ; i < width * width ; i ++) {
+      //generating a random color from the candyColor array
+      const randomColor = candyColors[Math.floor(Math.random() * candyColors.length)] ;
+      randomColorArrangement.push(randomColor) ; 
+    }
+  }
+
+  createBoard();
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      HENLO
     </div>
   );
 }
